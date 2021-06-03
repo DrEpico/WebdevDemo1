@@ -1,0 +1,139 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #1D1D1D;
+  color: #ffffff;
+  padding: 15px;
+}
+
+body {
+  
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+button {
+    background: #1D1D1D;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    outline: none;
+    padding: 0;
+    width: 30px;
+}
+CBbuttons {
+	/*background: #;*/
+    cursor: pointer;
+}
+
+/*#butt {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play.svg);
+}
+*/
+
+#play {
+    background-image: url(https://user-images.githubusercontent.com/84777161/119822224-4f2eef00-beeb-11eb-9b8d-465921f29a3e.png);
+}
+
+#play.played {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/play1.svg);
+}
+
+#pause {
+    background-image: url(https://user-images.githubusercontent.com/84777161/119822861-0cb9e200-beec-11eb-8071-8982f7f873c6.png);
+}
+
+#pause.paused {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/pause1.svg);
+}
+
+#stop {
+    background-image: url(https://user-images.githubusercontent.com/84777161/119822767-f0b64080-beeb-11eb-85b3-5a8fb34f5b97.png);
+}
+
+#stop.stopped {
+    background-image: url(https://rpsthecoder.github.io/js-speech-synthesis/stop1.svg);
+}
+
+.colorblind { 
+   	filter:grayscale(60%); 
+   	filter: contrast(150%); 
+ 	filter: saturate(200%); 
+ 	filter: sepia(50%); 
+ } 
+
+
+@media (max-width : 1259px ){
+    html {
+        font-size: 14pt;
+    }
+    article {
+        width: 90%;
+    }
+}
