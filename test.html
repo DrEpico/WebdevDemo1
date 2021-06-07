@@ -1,3 +1,24 @@
+<html>
+<head>
+<script>
+function validateForm() {
+    var x = document.forms["applicationForm"]["lname"].value;
+    if (x == "") {
+  alert("Name must be filled out");
+  }
+  else {
+  alert("take a look at preview and submit it nub")
+  }
+}
+</script>
+</head>
+<body>
+    <form name="applicationForm" action="appSubmitted.html">
+		<label for="lname"></label><br>
+		<input type="text" id="lname" name="name" value="Last name" required><br>
+
+
+        <input type="button" onclick="validateForm();" value= "submit" />
 
 
 
@@ -8,17 +29,14 @@
 
 
 
+</body>
+</html>
 
 
+<!--------------------------------------------------------------------------------
 
 
-
-
-
-------------------------------------------------------------------------------
-
-
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <script>
         function showemail() {
