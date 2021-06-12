@@ -1,0 +1,147 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>
+		Apply Form
+	</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<script>
+	function showEmail(){
+        var message = document.getElementById("email").value;
+        display_email.innerHTML= message;
+	}
+	function showfname(){
+        var message = document.getElementById("fname").value;
+        display_fname.innerHTML= message;
+	}
+	function showlname(){
+        var message = document.getElementById("lname").value;
+        display_lname.innerHTML= message;
+	}
+	function showDOB(){
+        var message = document.getElementById("DOB").value;
+        display_dob.innerHTML= message;
+	}
+	function showTelephone(){
+        var message = document.getElementById("telephone").value;
+        display_telephone.innerHTML= message;
+	}
+	/*function confirmation(){
+  		confirm("Take a look at form preview and make sure you entered information correctly then press confirm button");
+	}*/
+	function confirmed(){
+		window.location="applyForm2&3.html"
+	}		
+/*function validateEmail(){
+  	var emailField = document.forms["applicationForm"]["email"].value;
+  	if (emailField == "") {
+   	alert("Email must be filled out");
+	}
+	else {
+	alert("take a look at preview and submit it")
+	}
+}*/
+function validateEmail(email) {
+ 	if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(applicationForm.email.value)){
+    alert("Your email address is correct. Check form preview and press confirm.")
+	return (true)
+  	}
+    alert("You have entered an invalid email address!")
+    return (false)
+}
+function validatefname() {
+    var fnameField = document.forms["applicationForm"]["fname"].value;
+    if (fnameField == "") {
+    alert("Name must be filled out");
+    }
+    else {
+    alert("Your first name is correct. Check form preview and press confirm.")
+    }
+}
+function validatelname() {
+    var lnameField = document.forms["applicationForm"]["lname"].value;
+    if (lnameField == "") {
+    alert("Surname must be filled out");
+    }
+    /*if*/
+    else {
+    alert("Your surname is correct. Check form preview and press confirm.")
+    }
+}
+function validateDOB() {
+    var DOBField = document.forms["applicationForm"]["DOB"].value;
+    if (DOBField == "") {
+		/*gotta do some legit validation for dob as well*/
+    alert("Date of birth must be filled out");
+    }
+    else {
+    alert("Your date of birth is correct. Check form preview and press confirm.")
+    }
+}
+</script>
+<script src="phoneno-+international-format.js">
+function validateTelephone(telephone) {
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  	if(telephone.value.match(phoneno)){
+	alert("test: valid number")
+	return true;
+	}
+  	else{
+	alert("Not a valid Phone Number");
+	return false;
+    }
+}
+</script>
+<body>
+	
+	<div class="header">
+	  <h1>Hot Beans: Web Development</h1>
+	</div>
+	<ul>
+ 	 <li><a href="index.html">Home</a></li>
+ 	 <li><a href="coursesAvailable.html">Courses Available</a></li>
+ 	 <li><a class="active" href="applicationForm.html">Application</a></li>
+ 	 <li><a href="staff.html">Staff</a></li>
+ 	 <li><a href="contact.html">Contact</a></li>
+	</ul>
+
+	<p>You are applying for...</p><!--save job button-->
+	<h2>Full Stack Web Developer</h2>
+	<p>127 Mill Hill, Castlewellen, Co. Down  Salary: £60,000 - £70,000  Closing: 24/06/2021</p>
+	<h2>1.Your Details</h2>
+	<p>Got an account?-<!--be mentally prepared when clicking on login--><a href="https://www.youtube.com/watch?v=iik25wqIuFo">Login</a> to pre fill this form and access your saved CVs<br>Or continue to apply as a guest</p>
+		
+	  <form name="applicationForm" action="#">
+		<label for="email"></label><br>
+		<input type="text" id="email" name="email" value="E-mail"><br>
+
+		<label for="fname"></label><br>
+		<input type="text" id="fname" name="fname" value="First name"><br>
+			
+		<label for="lname"></label><br>
+		<input type="text" id="lname" name="lname" value="Last name"><br>
+			
+		<label for="DOB"></label><br>
+		<input type="text" id="DOB" name="DOB" value="Date of birth(DD/MM/YYYY)"><br>
+			
+		<label for="telephone"></label><br>
+		<input type="text" id="telephone" name="telephone" value="Telephone"><br>
+
+  	<h2>2.Add your CV</h2>
+		<label for="cvLink"></label><br>
+		<input type="text" id="cvLink" name="cvLink" value="CV link from Google Drive"><br><!--room of improvement. edit: but no im not doing it-->
+		
+		<input type="button" onclick="validateEmail(); validatefname(); validatelname(); validateDOB(); validateTelephone(); showEmail(); showfname(); showlname(); showDOB(); showTelephone();" value= "submit" /><br>
+		<p> email: <span id = "display_email"></span> </p>
+		<p> First name: <span id = "display_fname"></span> </p>
+		<p> Surname: <span id = "display_lname"></span> </p>
+		<p> Date of birth: <span id = "display_dob"></span> </p>
+		<p> Telephone: <span id = "display_telephone"></span> </p>
+		<input type="button" value= "confirm" onclick="confirmed();"/>
+</form>
+</body>
+</html>
