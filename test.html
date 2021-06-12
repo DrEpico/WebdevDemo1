@@ -1,3 +1,91 @@
+<!DOCTYPE html><html lang="en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------
+
+<!--<head>
+    <meta charset="utf-8">
+    <title>JavaScript form validation - checking non-empty</title>
+    <link rel="stylesheet" href="form-style.css" type="text/css" />
+    <script>
+function validateTelephone(telephone) {
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  	if(telephone.value.match(phoneno)){
+	alert("test: valid number")
+	return true;
+	}
+  	else{
+	alert("Not a valid Phone Number");
+	return false;
+    }
+}
+    </script>
+    </head>
+    
+    <body onload="document.form1.text1.focus()">
+    <div class="mail">
+    <h2>Input an Phone No.[+xx-xxxx-xxxx, +xx.xxxx.xxxx, +xx xxxx xxxx] and Submit</h2>
+    <form name="form1" action="#"> 
+    <ul>
+    <li><input type="text" name="text1"/></li>
+    <li>&nbsp;</li>
+    <li class="submit"><input type="submit" name="submit" value="Submit" onclick="validateTelephone(document.form1.text1)"/></li>
+    <li>&nbsp;</li>
+    </ul>
+    </form>
+    </div>
+    <script src="phoneno-+international-format.js"></script>
+    </body>
+    </html>
+    
+------------------------------------------------------------------------------------------------------------------------------
+<html>
+<body>
+
+    <h1>Display a Telephone Input Field</h1>
+
+    <form action="/action_page.php">
+        <label for="phone">Enter a phone number:</label><br><br>
+        <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br><br>
+        <small>Format: 123-45-678</small><br><br>
+        <input type="submit">
+    </form>
+
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
 <html>
 <head>
 <script>
@@ -10,27 +98,39 @@ function validateForm() {
     alert("take a look at preview and submit it nub")
     }
 }
+function validateEmail(){
+  		var y = document.forms["applicationForm"]["email"].value;
+  		if (y == "") {
+    	alert("Email must be filled out");
+		}
+		else {
+		alert("take a look at preview and submit it nub")
+		}
+	}
 </script>
 </head>
 <body>
     <form name="applicationForm" action="appSubmitted.html">
 		<label for="lname"></label><br>
-		<input type="text" id="lname" name="name" value="Last name" required><br>
+		<input type="text" id="lname" name="name" value="Last name"><br>
+		
+		<label for="email"></label><br>
+		<input type="text" id="email" name="email" value="E-mail"><br>
 
 
-        <input type="button" onclick="validateForm();" value= "submit" />
-
-
-
-
-
-
+        <input type="button" onclick="validateForm(); validateEmail();" value= "submit" />
 
 
 
 
+
+
+
+
+
+</form>
 </body>
-</html>
+</html>-->
 
 
 <!--------------------------------------------------------------------------------

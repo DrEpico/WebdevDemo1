@@ -1,0 +1,5 @@
+i have to separate my form to two part 
+1-from the beginning of personal information to the end of it
+2-else
+
+reason: to be able to have a click of sumbit function that allows to have radio button validation.
