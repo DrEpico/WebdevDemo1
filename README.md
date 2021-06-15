@@ -1,4 +1,4 @@
-Ver 0.1.4 Upgraded DOB validation so it looks for legit numbers instead of null/not (looks for dates)
+This is supposed to have only images back ups
 
 # WebdevDemo1
 Languages: HTML, CSS, Js
