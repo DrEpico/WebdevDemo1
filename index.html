@@ -7,7 +7,43 @@
 	<link rel="stylesheet" href="styles.css">
 		
 	<script>
- 	onload = function() {
+	var min = 8;
+	var max = 18;
+
+	function increaseFontSize() {
+	  var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+
+	  if (currentFontSize < max) {
+		body.style.fontSize = ++currentFontSize + 'px';
+	  }
+	}
+
+	function decreaseFontSize() {
+	  var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+
+	  if (currentFontSize > min) {
+		body.style.fontSize = --currentFontSize + 'px';
+	  }
+	}
+ 	var counter=0;
+		function onClickColorBlind() {
+
+
+			if(counter==0){ 
+
+				var element = document.getElementById("myBody");
+				element.classList.add("colorblind");
+				counter=1; 
+			} 
+			else if(counter==1) 
+			{ 
+				var element = document.getElementById("myBody");
+  				element.classList.remove("colorblind");
+				counter=0; 
+			} 
+	}
+	
+	onload = function() {
     if ('speechSynthesis' in window) with(speechSynthesis) {
 
         var playEle = document.querySelector('#play');
