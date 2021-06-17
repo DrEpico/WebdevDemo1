@@ -6,44 +6,47 @@
 	<title>Index</title>
 	<link rel="stylesheet" href="styles.css">
 		
-	<script>
-	var min = 8;
-	var max = 18;
+		<script>
+		var min = 8;
+			var max = 18;
 
-	function increaseFontSize() {
-	  var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+			function increaseFontSize() {
+			  var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
 
-	  if (currentFontSize < max) {
-		body.style.fontSize = ++currentFontSize + 'px';
-	  }
-	}
+			  if (currentFontSize < max) {
+				body.style.fontSize = ++currentFontSize + 'px';
+			  }
+			}
 
-	function decreaseFontSize() {
-	  var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+			function decreaseFontSize() {
+			  var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
 
-	  if (currentFontSize > min) {
-		body.style.fontSize = --currentFontSize + 'px';
-	  }
-	}
- 	var counter=0;
-		function onClickColorBlind() {
+			  if (currentFontSize > min) {
+				body.style.fontSize = --currentFontSize + 'px';
+			  }
+			}
+			var counter=0;
+			
+			function onClickColorBlind() {
 
-
-			if(counter==0){ 
-
-				var element = document.getElementById("myBody");
-				element.classList.add("colorblind");
-				counter=1; 
-			} 
-			else if(counter==1) 
-			{ 
-				var element = document.getElementById("myBody");
-  				element.classList.remove("colorblind");
-				counter=0; 
-			} 
-	}
-	
-	onload = function() {
+				if(counter==0){ 
+									alert(counter);
+					var element = document.getElementById("myBody");
+					element.classList.add("colorblind");
+					counter=1; 
+				} 
+				else if(counter==1) 
+				{ 
+					var element = document.getElementById("myBody");
+					element.classList.remove("colorblind");
+					counter=0; 
+				} 
+			}
+ 	onload = function() {
+		 if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+		{
+			alert('This website is not fully compatible with Internet Explorer, we recommened you to use Google Chrome while accessing this website.'); 
+		}  
     if ('speechSynthesis' in window) with(speechSynthesis) {
 
         var playEle = document.querySelector('#play');
@@ -108,41 +111,13 @@
     }
 
 }	
+	</script>	
+	
 
-
-
-function browserDetection() { 
-       if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
-    {
-        alert('Opera');
-    }
-    else if(navigator.userAgent.indexOf("Chrome") != -1 )
-    {
-        alert('test: Chrome');
-    }
-    else if(navigator.userAgent.indexOf("Safari") != -1)
-    {
-        alert('Safari');
-    }
-    else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
-    {
-         alert('Firefox');
-    }
-    else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
-    {
-      alert('This website is not fully compatible with Internet Explorer, we recommened you to use Google Chrome while accessing this website.'); 
-    }  
-    else 
-    {
-       alert('unknown');
-    }
-    }
-
-</script>
 
 </head>
 
-<body onload="browserDetection()" id="myBody">
+<body id="myBody">
 	<div class="header">
 	  <div class="row">
 		<div class="col-2"><a href="index.html"><img src="../images/CoffeeBeansIcon3.png" width="60%" height="60%" alt="Hot Beans logo"></a></div>
