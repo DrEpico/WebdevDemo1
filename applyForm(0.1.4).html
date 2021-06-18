@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,17 +62,20 @@
 		if (lnameField == "") {
 		alert("Surname must be filled out");
 		}
+		/*if*/
 		else {
 		alert("Your surname is correct. Check form preview and press confirm.")
 		}
 	}
-	function validateDOB() {
-		var DOBField = document.forms["applicationForm"]["DOB"].value;
-		if (DOBField == "") {
-		alert("Date of birth must be filled out");
+	function validateDOB(DOB) {
+		var validDate = /^\(?([0-31]{2})\)?[-./ ]?([0-12]{2})[-./ ]?([1900-2010]{4})$/;
+		if(DOB.value.match(validDate)){
+		alert("test: valid DOB")
+		return true;
 		}
-		else {
-		alert("Your date of birth is correct. Check form preview and press confirm.")
+		else{
+		alert("Not a valid DOB");
+		return false;
 		}
 	}
 	function validateTelephone(telephone) {
