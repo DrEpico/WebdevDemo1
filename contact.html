@@ -1,47 +1,89 @@
 <!doctype html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-	<title>
-		Contact Us
-	</title>
-	<link rel="stylesheet" href="styles.css">
-</head>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Contact Us</title>
+		<link rel="stylesheet" href="styles.css">
+		<script>
+			var min = 18;
+			var max = 23;
 
-<body>
-	
-	<div class="header">
-	  <h1>Hot Beans: Web Development</h1>
-	</div>
-	
-	<ul>
- 	 <li><a href="index.html">Home</a></li>
- 	 <li><a href="coursesAvailable.html">Courses Available</a></li>
- 	 <li><a href="applicationForm.html">Application</a></li>
- 	 <li><a href="staff.html">Staff</a></li>
- 	 <li><a class="active" href="contact.html">Contact</a></li>
-	</ul>
-	
-	
-	<div class="row">
-	  <div class="col-4"> <!--Left Column-->
-		<h1>Contact Us</h1>
-		  <h2>Postal Address</h2>
-	  	<p>127 Mill Hill<br>Castlewellen<br>Co. Down</p>
-		  <h2>Telephone</h2>
-		  	<p>117 0721 4545</p>
-		  <h2>Email</h2>
-		  	<p>info@hotbeans.com</p>
-	  </div>
+			function increaseFontSize() {
+			var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
 
-	  <div class="col-8"> <!--Middle Column and Right Column-->
-		<p align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2330.459005886502!2d-5.936042984126898!3d54.260457080180764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486122e9f1ee9ec9%3A0xf011c449d4d1955b!2s127%20Mill%20Hill%2C%20Castlewellan%20BT31%209NG!5e0!3m2!1sen!2suk!4v1620385180462!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
-	  </div>
-	
-	  
+			if (currentFontSize < max) {
+				body.style.fontSize = ++currentFontSize + 'px';
+			}
+			}
+
+			function decreaseFontSize() {
+			var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+
+			if (currentFontSize > min) {
+				body.style.fontSize = --currentFontSize + 'px';
+			}
+			}
+
+			var counter=0;
+			function onClickColorBlind() {
+			if(counter==0){ 
+				var element = document.getElementById("myBody");
+				element.classList.add("colorblind");
+				counter=1; 
+			} 
+			else if(counter==1) { 
+				var element = document.getElementById("myBody");
+				element.classList.remove("colorblind");
+				counter=0; 
+			} 
+			}
+		</script>
+	</head>
+
+	<body id="myBody">
+		<div class="header">
+			<div class="row">
+				<div class="col-2"><a href="index.html"><img src="images/CoffeeBeansIcon3.png" width="60%" height="60%" alt="Hot Beans logo"></a></div>
+				<div class="col-7"><h1>Hot Beans: Web Development</h1></div>
+				<div class="col-3 CBbutt">
+					<button id="increase" onClick="increaseFontSize()">&uarr;A</button>
+					<button id="decrease" onClick="decreaseFontSize()">A&darr;</button> 
+					<button id="butt" onClick="onClickColorBlind()">Color Blind Mode</button> <!--Left Column-->
+				</div>
+			</div>
+		</div>
 		
-</div>
-</body>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="coursesAvailable.html">Courses Available</a></li>
+			<li><a href="applicationForm.html">Application</a></li>
+			<li><a href="staff.html">Staff</a></li>
+			<li><a class="active" href="contact.html">Contact</a></li>
+		</ul>
+		
+			
+		<div class="row"><br>
+			<div class="col-2"></div>
+			<div class="col-3"> <!--Left Column-->
+				<h1>Contact Us</h1>
+				<h2>Postal Address</h2>
+				<p>127 Mill Hill<br>Castlewellen<br>Co. Down</p>
+				<h2>Telephone</h2>
+					<p>117 0721 4545</p>
+				<h2>Email</h2>
+					<p>info@hotbeans.com</p>
+			</div>
 
+			<div class="col-5"> <!--Middle Column and Right Column-->
+				<p align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2330.459005886502!2d-5.936042984126898!3d54.260457080180764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486122e9f1ee9ec9%3A0xf011c449d4d1955b!2s127%20Mill%20Hill%2C%20Castlewellan%20BT31%209NG!5e0!3m2!1sen!2suk!4v1620385180462!5m2!1sen!2suk" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<div class="footer">
+			<p align="center" style="font-size: 10pt;">Get in touch</p>
+			<p align="center" style="font-size: 9pt;">info@hotbeans.com</p>
+			<p align="center" style="font-size: 9pt; color: gray;">HotBeans™</p>
+		</div>
+	</body>
 </html>

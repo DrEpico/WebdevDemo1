@@ -1,110 +1,223 @@
 <!doctype html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-	<title>
-		Applocation
-	</title>
-	<link rel="stylesheet" href="styles.css">
-<script type="text/javascript">
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>
+			Applocation
+		</title>
+		<link rel="stylesheet" href="styles.css">
+		<script type="text/javascript">
+			function MM_swapImgRestore() { //v3.0
+			var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+			}
+			function MM_preloadImages() { //v3.0
+			var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+				var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+				if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+			}
 
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
+			function MM_findObj(n, d) { //v4.01
+			var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+				d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+			if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+			for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+			if(!x && d.getElementById) x=d.getElementById(n); return x;
+			}
 
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-</script>
-</head>
+			function MM_swapImage() { //v3.0
+			var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+			if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+			}
+			var min = 18;
+			var max = 25;
 
-<body onLoad="MM_preloadImages('images/TimonyBrown.gif')">
-	
-	<div class="header">
-	  <h1>Hot Beans: Web Development</h1>
-	</div>
-	
-	<ul>
- 	 <li><a href="index.html">Home</a></li>
- 	 <li><a href="coursesAvailable.html">Courses Available</a></li>
- 	 <li><a class="active" href="applicationForm.html">Application</a></li>
- 	 <li><a href="staff.html">Staff</a></li>
- 	 <li><a href="contact.html">Contact</a></li>
-	</ul>
-	
-	
-	<div class="row">
-	  <div class="col-12"> <!--Left Column-->
-		<h1>Interested?</h1>
-		 <p align="left">If you aew interested in working with us please fill in all the necessary details below, all your information will be kept confidential.</p>
-	  </div>
-	</div>
-	
-	<p align="center"><a href="applyForm(0.1.4).html">Apply now!</a></p><!--this should be a button--><br>
-	
-	<h2>Available Jobs</h2>
-		<p>Full Stack Web Developer working for an award-winning software solutions company specialising in the creation of innovative solutions for a range of complex and demanding industries. This organisation is a world class software solution provider developing solutions that are intelligent, platform-independent and adaptable.<br><br>
+			function increaseFontSize() {
+			var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
 
-		This role will be based in the Belfast office working on core products and major customer solutions. Looking for a web developer responsible for the development of both server-side logic and front-end elements using the latest web technologies. The developer is expected to be highly technically proficient in Python, Django, PostgreSQL, HTML/CSS and JavaScript to be able to write, deploy and maintain web applications. The application domain will be Geospatial in nature so a strong knowledge of web-based frameworks such as Leaflet, CesiumJS will be required. Production experience with Docker and AWS environments is also an advantage. The role will also involve liaising with customer representatives for product demonstrations and ongoing requirements capture and product definition so excellent communication and interpersonal skills are required.<br><br>
+			if (currentFontSize < max) {
+				body.style.fontSize = ++currentFontSize + 'px';
+			}
+			}
 
-	<h3>Responsibilities</h3><br><br>
+			function decreaseFontSize() {
+			var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
 
-		� Developing new Geospatial web applications. Develop and support current Geospatial web applications for key clients.<br>
+			if (currentFontSize > min) {
+				body.style.fontSize = --currentFontSize + 'px';
+			}
+			}
 
-		� Work directly with the customer on future requirements.<br>
+			var counter=0;
+			function onClickColorBlind() {
+			if(counter==0){ 
+				var element = document.getElementById("myBody");
+				element.classList.add("colorblind");
+				counter=1; 
+			} 
+			else if(counter==1) { 
+				var element = document.getElementById("myBody");
+				element.classList.remove("colorblind");
+				counter=0; 
+			} 
+			}
 
-		� Based on requirements implement, build and maintain web applications.<br>
+			onload = function() {
+				if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )){ //IF IE > 10
+					alert('This website is not fully compatible with Internet Explorer, we recommened you to use Google Chrome while accessing this website.'); 
+				}  
 
-		� Collaborate with current development teamSkills<br><br>
+				if ('speechSynthesis' in window) with(speechSynthesis) {
 
-	<h3>Qualifications</h3><br><br>
+				var playEle = document.querySelector('#play');
+				var pauseEle = document.querySelector('#pause');
+				var stopEle = document.querySelector('#stop');
+				var flag = false;
 
-		� BSc in Computer Science (or equivalent)<br>
+				playEle.addEventListener('click', onClickPlay);
+				pauseEle.addEventListener('click', onClickPause);
+				stopEle.addEventListener('click', onClickStop);
 
-		� 5 years of experience in web application product development using Django framework (imperative)<br>
+				function onClickPlay() {
+					if (!flag) {
+						flag = true;
+						utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+						utterance.voice = getVoices()[0];
+						utterance.onend = function() {
+							flag = false;
+							playEle.className = pauseEle.className = '';
+							stopEle.className = 'stopped';
+						};
+						playEle.className = 'played';
+						stopEle.className = '';
+						speak(utterance);
+					}
+					if (paused) { /* unpause/resume narration */
+						playEle.className = 'played';
+						pauseEle.className = '';
+						resume();
+					}
+				}
 
-		� Experience developing with Python<br>
+				function onClickPause() {
+					if (speaking && !paused) { /* pause narration */
+						pauseEle.className = 'paused';
+						playEle.className = '';
+						pause();
+					}
+				}
 
-		� Experience with relational databases, specifically PostgreSQL<br>
+				function onClickStop() {
+					if (speaking) { /* stop narration */
+						/* for safari */
+						stopEle.className = 'stopped';
+						playEle.className = pauseEle.className = '';
+						flag = false;
+						cancel();
 
-		� Experience developing with JavaScript, HTML5, DOM, CSS<br>
+					}
+				}
 
-		� Experience using JSON, XML, AJAX and jQuery<br>
+			}
 
-		� Knowledge and preferred experience with Leaflet, CesiumJS, GIS framework<br>
+			else { /* speech synthesis not supported */
+				msg = document.createElement('h5');
+				msg.textContent = "Detected no support for Speech Synthesis";
+				msg.style.textAlign = 'center';
+				msg.style.backgroundColor = 'red';
+				msg.style.color = 'white';
+				msg.style.marginTop = msg.style.marginBottom = 0;
+				document.body.insertBefore(msg, document.querySelector('div'));
+			}
+			}	
+		</script>
+	</head>
+	<body id="myBody">
+		<div class="header">
+		  	<div class="row">
+				<div class="col-2"><a href="index.html"><img src="images/CoffeeBeansIcon3.png" width="60%" height="60%" alt="Hot Beans logo"></a></div>
+				<div class="col-7"><h1>Hot Beans: Web Development</h1></div>
+				<div class="col-3 CBbutt">
+					<button id="play"></button>
+					<button id="pause"></button>
+					<button id="stop"></button>
+					<button id="increase" onClick="increaseFontSize()">&uarr;A</button>
+					<button id="decrease" onClick="decreaseFontSize()">A&darr;</button> 
+					<button id="butt" onClick="onClickColorBlind()">Color Blind Mode</button> <!--Left Column-->
+				</div>
+		  	</div>
+		</div>
 
-		� Knowledge of Docker, AWS<br>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="coursesAvailable.html">Courses Available</a></li>
+			<li><a class="active" href="applicationForm.html">Application</a></li>
+			<li><a href="staff.html">Staff</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
 
-		� Ability to communicate clearly with customers<br>
 
-		� Travel to customer locations for meetings/presentations Desirable<br>
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-10"> <!--Left Column-->
+				<article>
+				<h1>Interested?</h1>
+					<p align="left">If you aew interested in working with us please fill in all the necessary details below, all your information will be kept confidential.</p></article>
+					<p align="center"><a href="applyForm(0.1.5).html">Apply now!</a></p><!--this should be a button--><br>
+					<article>
+					<h2>Available Jobs</h2>
+						<p>Full Stack Web Developer working for an award-winning software solutions company specialising in the creation of innovative solutions for a range of complex and demanding industries. This organisation is a world class software solution provider developing solutions that are intelligent, platform-independent and adaptable.<br><br>
 
-		� Viewable examples of previous work<br>
+						This role will be based in the Belfast office working on core products and major customer solutions. Looking for a web developer responsible for the development of both server-side logic and front-end elements using the latest web technologies. The developer is expected to be highly technically proficient in Python, Django, PostgreSQL, HTML/CSS and JavaScript to be able to write, deploy and maintain web applications. The application domain will be Geospatial in nature so a strong knowledge of web-based frameworks such as Leaflet, CesiumJS will be required. Production experience with Docker and AWS environments is also an advantage. The role will also involve liaising with customer representatives for product demonstrations and ongoing requirements capture and product definition so excellent communication and interpersonal skills are required.</p><br><br>
 
-		� Experience with Agile toolsets, i.e. JIRA and Confluence<br>
+						<h3>Responsibilities</h3><br>
+							<p>・ Developing new Geospatial web applications. Develop and support current Geospatial web applications for key clients.<br>
 
-		� Knowledge of big data concept and open source frameworks<br>
+							・ Work directly with the customer on future requirements.<br>
 
-		� Use of automated build process tools, version control systems, REST API</p><br>
+							・ Based on requirements implement, build and maintain web applications.<br>
 
-	<p align="center"><a href="applyForm(0.1.4).html">Apply now!</a></p><!--this should be a button-->
+							・ Collaborate with current development teamSkills<br><br></p>
 
-	
-</body>
+						<h3>Qualifications</h3><br>
 
+							<p>・ Sc in Computer Science (or equivalent)<br>
+
+							・ 5 years of experience in web application product development using Django      framework (imperative)<br>
+
+							・ Experience developing with Python<br>
+
+							・ Experience with relational databases, specifically PostgreSQL<br>
+
+							・ Experience developing with JavaScript, HTML5, DOM, CSS<br>
+
+							・ Experience using JSON, XML, AJAX and jQuery<br>
+
+							・ Knowledge and preferred experience with Leaflet, CesiumJS, GIS framework<br>
+
+							・ Knowledge of Docker, AWS<br>
+
+							・ Ability to communicate clearly with customers<br>
+
+							・ Travel to customer locations for meetings/presentations Desirable<br>
+
+							・ Viewable examples of previous work<br>
+
+							・ Experience with Agile toolsets, i.e. JIRA and Confluence<br>
+
+							・ Knowledge of big data concept and open source frameworks<br>
+
+							・ Use of automated build process tools, version control systems, REST API</p><br>
+					</article>
+				<p align="center"><a href="applyForm(0.1.5).html">Apply now!</a></p><!--this should be a button--><br>
+			</div>
+			<div class="col-1"></div>
+		</div>
+		<div class="footer">
+			<p align="center" style="font-size: 10pt;">Get in touch</p>
+			<p align="center" style="font-size: 9pt;">info@hotbeans.com</p>
+			<p align="center" style="font-size: 9pt; color: gray;">HotBeans™</p>
+		</div>
+	</body>
 </html>
 

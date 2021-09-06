@@ -1,0 +1,209 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Apply Form</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<script>
+		/*function confirmation(){
+			//confirm("Take a look at form preview and make sure you entered information correctly then press confirm button");
+		}*/
+		function confirmed() {
+			window.location="appSubmitted.html"
+		}		
+		
+		var min = 18;
+		var max = 23;
+
+		function increaseFontSize() {
+		var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+
+		if (currentFontSize < max) {
+			body.style.fontSize = ++currentFontSize + 'px';
+		}
+		}
+
+		function decreaseFontSize() {
+		var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+
+		if (currentFontSize > min) {
+			body.style.fontSize = --currentFontSize + 'px';
+		}
+		}
+
+		var counter=0;
+		function onClickColorBlind() {
+		if(counter==0){ 
+			var element = document.getElementById("myBody");
+			element.classList.add("colorblind");
+			counter=1; 
+		} 
+		else if(counter==1) { 
+			var element = document.getElementById("myBody");
+			element.classList.remove("colorblind");
+			counter=0; 
+		} 
+		}
+
+		onload = function() {
+			if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )){ //IF IE > 10
+				alert('This website is not fully compatible with Internet Explorer, we recommened you to use Google Chrome while accessing this website.'); 
+			}  
+
+			if ('speechSynthesis' in window) with(speechSynthesis) {
+
+			var playEle = document.querySelector('#play');
+			var pauseEle = document.querySelector('#pause');
+			var stopEle = document.querySelector('#stop');
+			var flag = false;
+
+			playEle.addEventListener('click', onClickPlay);
+			pauseEle.addEventListener('click', onClickPause);
+			stopEle.addEventListener('click', onClickStop);
+
+			function onClickPlay() {
+				if (!flag) {
+					flag = true;
+					utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
+					utterance.voice = getVoices()[0];
+					utterance.onend = function() {
+						flag = false;
+						playEle.className = pauseEle.className = '';
+						stopEle.className = 'stopped';
+					};
+					playEle.className = 'played';
+					stopEle.className = '';
+					speak(utterance);
+				}
+				if (paused) { /* unpause/resume narration */
+					playEle.className = 'played';
+					pauseEle.className = '';
+					resume();
+				}
+			}
+
+			function onClickPause() {
+				if (speaking && !paused) { /* pause narration */
+					pauseEle.className = 'paused';
+					playEle.className = '';
+					pause();
+				}
+			}
+
+			function onClickStop() {
+				if (speaking) { /* stop narration */
+					/* for safari */
+					stopEle.className = 'stopped';
+					playEle.className = pauseEle.className = '';
+					flag = false;
+					cancel();
+
+				}
+			}
+
+		}
+
+		else { /* speech synthesis not supported */
+			msg = document.createElement('h5');
+			msg.textContent = "Detected no support for Speech Synthesis";
+			msg.style.textAlign = 'center';
+			msg.style.backgroundColor = 'red';
+			msg.style.color = 'white';
+			msg.style.marginTop = msg.style.marginBottom = 0;
+			document.body.insertBefore(msg, document.querySelector('div'));
+		}
+
+		}	
+	</script>
+	
+	<body id="myBody">
+		<div class="header">
+			<div class="row">
+				<div class="col-2"><a href="index.html"><img src="images/CoffeeBeansIcon3.png" width="60%" height="60%" alt="Hot Beans logo"></a></div>
+				<div class="col-7"><h1>Hot Beans: Web Development</h1></div>
+				<div class="col-3 CBbutt">
+					<button id="increase" onClick="increaseFontSize()">&uarr;A</button>
+					<button id="decrease" onClick="decreaseFontSize()">A&darr;</button> 
+					<button id="butt" onClick="onClickColorBlind()">Color Blind Mode</button> <!--Left Column-->
+				</div>
+			</div>
+		</div>
+		
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="coursesAvailable.html">Courses Available</a></li>
+				<li><a class="active" href="applicationForm.html">Application</a></li>
+				<li><a href="staff.html">Staff</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-8">
+					<p>You are applying for...</p><!--save job button-->
+					<h2>Full Stack Web Developer</h2>
+					<p>127 Mill Hill, Castlewellen, Co. Down  Salary: £60,000 - £70,000  Closing: 24/06/2021</p>
+					<h3>Education</h3>
+					<p>Have you done A-levels?</p><br><br>
+					<form name="applicationFormP2" action="applicationForm.html">
+						<label for="yesAleles"><input id="yesAlevels" type="radio" name="yesAlevels" value="yesAlevels">Yes</label><!--if yes required script or somth-->
+						<label for="noAlevels"><input id="noAlevels" type="radio" name="noAlevels" value="noAlevels">No</label><br>
+
+						<label for="alevelsDetail"></label><br>
+						<input type="text" id="alevelsDetail" name="alevelsDetail" value="Collage name"><br>
+
+						<label for="coursesAlevels"></label><br>
+						<input type="text" id="coursesAlevels" name="coursesAlevels" value="A-level courses"><br><br>
+
+						<p>Do you have bachelor's degree?</p><br>
+						<label for="yesBachlor"><input id="yesBachlor" type="radio" name="yesBachlor" value="yesBachlor">Yes</label><!--if yes required script or somth-->
+						<label for="noBachlor"><input id="noBachlor" type="radio" name="noBachlor" value="noBachlor">No</label><br>
+
+						<label for="bachlorDetail"></label><br>
+						<input type="text" id="bachlorUniName" name="bachlorUniName" value="University name"><br>
+
+						<label for="fieldOfStudy"></label><br>
+						<input type="text" id="fieldOfStudyBachlor" name="fieldOfStudy" value="Field of study"><br><br>
+
+						<p>Do you have masters's degree?</p><br>
+						<label for="yesMaster"><input id="yesMaster" type="radio" name="yesMaster" value="University name">Yes</label><!--if yes required script or somth-->
+						<label for="noMaster"><input id="noMaster" type="radio" name="noMaster" value="noMaster">No</label><br>
+
+						<label for="MasterDetail"></label><br>
+						<input type="text" id="masterUniName" name="masterUniName" value="University Name"><br>
+
+						<label for="fieldOfStudy"></label><br>
+						<input type="text" id="fieldOfStudyMaster" name="fieldOfStudy" value="Field of study"><br><br>
+
+					<h3>Coding Languages</h3>
+						<p>Which of programming languages have you mastered in list below?</p>
+						<label for="HTML"><input id="HTML" type="checkbox" name="HTML" value="HTML">HTML</label>
+						<label for="CSS"><input id="CSS" type="checkbox" name="CSS" value="CSS">CSS</label>
+						<label for="JavaScript"><input id="JavaScript" type="checkbox" name="JavaScript" value="JavaScript">Java Script</label>
+						<label for="PHP"><input id="PHP" type="checkbox" name="PHP" value="PHP">PHP</label>
+						<label for="Python"><input id="Python" type="checkbox" name="Python" value="Python">Python</label>
+						<label for="TypeScript"><input id="TypeScript" type="checkbox" name="TypeScript" value="TypeScript">TypeScript</label>
+						<label for="Ruby"><input id="Ruby" type="checkbox" name="Ruby" value="Ruby">Ruby</label>
+
+
+					<h2>2.Add your CV</h2>
+						<label for="cvLink"></label><br>
+						<input type="text" id="cvLink" name="cvLink" value="CV link from Google Drive" style="height: 25px; width: 208px;"><br><!--room of improvement. edit: but no im not doing it-->
+
+					<h2>3.Cover note</h2>
+						<label for="coverNote"></label><br>
+						<input type="text" id="coverNote" name="coverNote" value="keep it relavant and brief" style="height: 76px; width: 308px;"><br><br>
+						<input type="button" value="confirm" onclick="confirmed();">
+					</form>
+				</div>
+				<div class="col-2"></div>
+		</div>
+		<div class="footer">
+			<p align="center" style="font-size: 10pt;">Get in touch</p>
+			<p align="center" style="font-size: 9pt;">info@hotbeans.com</p>
+			<p align="center" style="font-size: 9pt; color: gray;">HotBeans™</p>
+		</div>
+	</body>
+</html>

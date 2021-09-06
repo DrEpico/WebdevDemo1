@@ -1,54 +1,107 @@
 <!doctype html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-	<title>
-		Courses Available
-	</title>
-	<link rel="stylesheet" href="styles.css">
-</head>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Courses Available</title>
+		<link rel="stylesheet" href="styles.css">
+		<script>
+			var min = 18;
+			var max = 22;
 
-<body>
-	
-	<div class="header">
-	  <h1>Hot Beans: Web Development</h1>
-	</div>
-	
-	
-	<ul>
- 	 <li><a href="index.html">Home</a></li>
- 	 <li><a class="active" href="coursesAvailable.html">Courses Available</a></li>
- 	 <li><a href="applicationForm.html">Application</a></li>
- 	 <li><a href="staff.html">Staff</a></li>
- 	 <li><a href="contact.html">Contact</a></li>
-	</ul>
-	
-	
-	<div class="row">
-	  <div class="col-4"> <!--Left Column-->
-		<p>Queen's University</p>
-		  <p><a href="https://www.qub.ac.uk/courses/postgraduate-taught/software-development-msc/" title="Go to Queen's page on Software Development MSc" target="_blank">Software Development MSc</a></p>
-		  <a href="https://www.qub.ac.uk/courses/undergraduate/computer-science-meng-g402/" title="Go to Queen's page on Computer Science MEng" target="_blank">Computer Science MEng</a>
-	  </div>
+			function increaseFontSize() {
+			var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
 
-	  <div class="col-4"> <!--Middle Column-->
-		<h1>
-			The City
-		</h1>
-		<p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
-		<p>Resize the browser window to see how the content respond to the resizing.</p>
-	  </div>
-	
-	  <div class="col-4"> <!--Right Column-->
-		<h1>
-			The City
-		</h1>
-		<p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
-		<p>Resize the browser window to see how the content respond to the resizing.</p>
-	  </div>
+			if (currentFontSize < max) {
+				body.style.fontSize = ++currentFontSize + 'px';
+			}
+			}
+
+			function decreaseFontSize() {
+			var body = document.body, currentFontSize = parseFloat(window.getComputedStyle(body, null).fontSize);
+
+			if (currentFontSize > min) {
+				body.style.fontSize = --currentFontSize + 'px';
+			}
+			}
+
+			var counter=0;
+			function onClickColorBlind() {
+			if(counter==0){ 
+				var element = document.getElementById("myBody");
+				element.classList.add("colorblind");
+				counter=1; 
+			} 
+			else if(counter==1) { 
+				var element = document.getElementById("myBody");
+				element.classList.remove("colorblind");
+				counter=0; 
+			} 
+			}
+
+		</script>
+	</head>
+
+
+	<body id="myBody">
+		<div class="header">
+			<div class="row">
+				<div class="col-2"><a href="index.html"><img src="images/CoffeeBeansIcon3.png" width="60%" height="60%" alt="Hot Beans logo"></a></div>
+				<div class="col-7"><h1>Hot Beans: Web Development</h1></div>
+				<div class="col-3 CBbutt">
+					<button id="increase" onClick="increaseFontSize()">&uarr;A</button>
+					<button id="decrease" onClick="decreaseFontSize()">A&darr;</button> 
+					<button id="butt" onClick="onClickColorBlind()">Color Blind Mode</button> <!--Left Column-->
+				</div>
+			</div>
+		</div>
 		
-	</div>
-</body>
+		
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a class="active" href="coursesAvailable.html">Courses Available</a></li>
+			<li><a href="applicationForm.html">Application</a></li>
+			<li><a href="staff.html">Staff</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+		
+		
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col-3"> <!--Left Column-->
+				<h1>Queen's University</h1>
+					<p><a href="https://www.qub.ac.uk/courses/postgraduate-taught/software-development-msc/" title="Go to Queen's page on Software Development MSc" target="_blank">Software Development MSc</a></p>
+					<p><a href="https://www.qub.ac.uk/courses/undergraduate/computer-science-meng-g402/" title="Go to Queen's page on Computer Science MEng" target="_blank">Computer Science MEng</a></p>
+					<h2>Article</h2> 
+						<p><a href="https://www.qub.ac.uk/research-centres/CentreforDataDigitisationandAnalysis/ServicesandOutputs/WebDesign/" title="Read article about Web Design" target="_blank">Web Design</a></p>
+						<p><a href="https://www.qub.ac.uk/research-centres/CentreforDataDigitisationandAnalysis/ServicesandOutputs/WebDesign/ProjectDatabases/" title="Read Article about Project Database">Project Database</a></p>
+						<p><a href="https://www.qub.ac.uk/research-centres/CentreforDataDigitisationandAnalysis/ServicesandOutputs/WebDesign/Crowdsourcing/" title="Read Article about Crowdsourcing">Crowdsourcing</a></p>	
+			</div>
 
+			<div class="col-3"> <!--Middle Column-->
+				<h1>Ulster Univertity </h1>
+					<p><a href="https://www.ulster.ac.uk/courses/202122/computer-science-software-systems-development-21547" title="Go to Ulster page on Computer Science" target="_blank">Computer Science<br>(Software Systems Development)
+						BSc</a></p>
+					<p><a href="https://www.ulster.ac.uk/courses/202122/interaction-design-21689" title="Go to Ulster page on Interaction Design" target="_blank">Interaction Design</a></p>
+					<h2>Article</h2> 
+						<p><a href="https://www.qub.ac.uk/research-centres/CentreforDataDigitisationandAnalysis/ServicesandOutputs/WebDesign/" title="Go to Queen's page on Web Design" target="_blank">Web Design Article</a></p>
+			</div>
+		
+			<div class="col-3"> <!--Right Column-->
+				<h1>Belfast Met</h1>
+					<p><a href="https://www.belfastmet.ac.uk/course-detail/20-21/p00901-ab/mta-html5-application-development-fundamentals/" title="Go to Belfast Met page on MTA Introduction to Programming
+					Using HTML and CSS" target="_blank">MTA Introduction to Programming<br>Using HTML and CSS</a></p>
+					<p><a href="https://www.belfastmet.ac.uk/course-detail/21-23/p00204-aa/hnd-in-computing-software-engineering-ft-millfield-campus/" title="Go to Belfast Met page on Computing (Software Engineering)" target="_blank">Computing (Software Engineering)</a></p>
+					<p><a href="https://www.belfastmet.ac.uk/course-detail/21-23/p00191-aa/foundation-degree-in-software-engineering-validated-by-ulster-university-ft-millfield-campus/" title="Go to Belfast Met page on Software Engineering" target="_blank">Software Engineering</a></p>
+					<h2>Article</h2>
+						<p><a href="https://www.belfastmet.ac.uk/support-for-business/product-development/" title="Go to Belfast Met Buisness Support page (product development)" target="_blank">Web Design Article</a></p>
+			</div>
+			<div class="col-1"></div>
+		</div>
+		<div class="footer">
+			<p align="center" style="font-size: 10pt;">Get in touch</p>
+			<p align="center" style="font-size: 9pt;">info@hotbeans.com</p>
+			<p align="center" style="font-size: 9pt; color: gray;">HotBeans™</p>
+		</div>
+	</body>
 </html>
